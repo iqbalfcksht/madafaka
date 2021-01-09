@@ -68,3 +68,4 @@ async def _(event):
 
 CMD_HELP.update(
     {"spotifydl": ".sdd <link>\nUse - Download song from spotify/deezer."}
+)
