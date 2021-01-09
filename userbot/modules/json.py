@@ -1,11 +1,12 @@
 # yaml_format is ported from uniborg
 import io
 
-from . import parse_pre, reply_id, yaml_format
+from userbot.format import yaml_format, parse_pre
 from userbot import MAX_MESSAGE_SIZE_LIMIT, CMD_HELP
 from userbot.events import register
 
 MAX_MESSAGE_SIZE_LIMIT = MAX_MESSAGE_SIZE_LIMIT
+reply_id = pstl.reply_to_msg_id
 
 
 @register(outgoing=True, pattern="^.json(?: |$)(.*)", disable_errors=True)
