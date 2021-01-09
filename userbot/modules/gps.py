@@ -2,6 +2,7 @@ from geopy.geocoders import Nominatim
 from telethon.tl import types
 
 from userbot import CMD_HELP
+from userbot.events import register
 
 
 @register(outgoing=True, pattern="^.gps(?: |$)(.*)", disable_errors=True)
