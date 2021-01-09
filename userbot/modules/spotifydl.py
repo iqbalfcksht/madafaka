@@ -10,7 +10,7 @@ from userbot import CMD_HELP
 from userbot.events import register
 
 
-@register(outgoing=True, pattern=r"^\.sdd (.+?|)
+@register(outgoing=True, pattern="^.sdd")
 async def _(event):
 
     if event.fwd_from:
