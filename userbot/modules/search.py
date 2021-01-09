@@ -4,6 +4,7 @@ import requests
 from search_engine_parser import GoogleSearch
 
 from userbot import CMD_HELP
+from userbot.events import register
 
 
 @register(outgoing=True, pattern="^.gs(?: |$)(.*)", disable_errors=True)
