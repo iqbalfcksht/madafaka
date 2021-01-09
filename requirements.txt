@@ -1,3 +1,2 @@
 faker
 geopy
-search-engine-parser>=0.4.2
