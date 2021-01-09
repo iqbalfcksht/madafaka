@@ -107,6 +107,9 @@ OCR_SPACE_API_KEY = os.environ.get("OCR_SPACE_API_KEY") or None
 # remove.bg API key
 REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY") or None
 
+# TG API limit. A message can have maximum 4096 characters!
+MAX_MESSAGE_SIZE_LIMIT = 4095
+
 # Chrome Driver and Headless Google Chrome Binaries
 CHROME_DRIVER = os.environ.get("CHROME_DRIVER") or None
 GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN") or None
