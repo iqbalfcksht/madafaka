@@ -8,7 +8,7 @@ from userbot.events import register
 MAX_MESSAGE_SIZE_LIMIT = MAX_MESSAGE_SIZE_LIMIT
 
 
-@register(outgoing=True, pattern="^.json(?: |$)(.*)", disable_errors=True)
+@register(outgoing=True, pattern=r"^.json(?: |$)([\s\S]*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -32,7 +32,7 @@ async def _(event):
         await edit_or_reply(event, the_real_message, parse_mode=parse_pre)
 
 
-@register(outgoing=True, pattern="^.yaml(?: |$)(.*)", disable_errors=True)
+@register(outgoing=True, pattern=r"^.yaml(?: |$)([\s\S]*)")
 async def _(event):
     if event.fwd_from:
         return
