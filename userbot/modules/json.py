@@ -6,7 +6,6 @@ from userbot import MAX_MESSAGE_SIZE_LIMIT, CMD_HELP
 from userbot.events import register
 
 MAX_MESSAGE_SIZE_LIMIT = MAX_MESSAGE_SIZE_LIMIT
-reply_id = pstl.reply_to_msg_id
 
 
 @register(outgoing=True, pattern="^.json(?: |$)(.*)", disable_errors=True)
@@ -14,6 +13,7 @@ async def _(event):
     if event.fwd_from:
         return
     the_real_message = None
+    reply_id = pstl.reply_to_msg_id
     reply_to_id = await reply_id(event)
     if event.reply_to_msg_id:
         catevent = await event.get_reply_message()
@@ -37,6 +37,7 @@ async def _(event):
     if event.fwd_from:
         return
     the_real_message = None
+    reply_id = pstl.reply_to_msg_id
     reply_to_id = await reply_id(event)
     if event.reply_to_msg_id:
         catevent = await event.get_reply_message()
