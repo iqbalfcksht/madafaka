@@ -7,9 +7,8 @@ from userbot import CMD_HELP
 from userbot.events import register
 
 
-@register(outgoing=True, pattern=r"^\.gs(?: |$)(.*)")
-async def gsearch(q_event):
-    """ For .gs command. """
+@register(outgoing=True, pattern="^.gs(?: |$)(.*)", disable_errors=True)
+async def hi(event):
     match = q_event.pattern_match.group(1)
     page = findall(r"page=\d+", match)
     try:
@@ -37,8 +36,8 @@ async def gsearch(q_event):
     )
 
 
-@register(outgoing=True, pattern=r"^\.duckgo(?: |$)(.*)")
-async def _(event):
+@register(outgoing=True, pattern="^.duckgo(?: |$)(.*)", disable_errors=True)
+async def hi(event):
     if event.fwd_from:
         return
     input_str = event.pattern_match.group(1)
@@ -53,8 +52,8 @@ async def _(event):
         await eor(event, "something is wrong. please try again later.")
 
 
-@register(outgoing=True, pattern=r"^\.ggl(?: |$)(.*)")
-async def _(event):
+@register(outgoing=True, pattern="^.ggl(?: |$)(.*)", disable_errors=True)
+async def hi(event):
     if event.fwd_from:
         return
     input_str = event.pattern_match.group(1)
