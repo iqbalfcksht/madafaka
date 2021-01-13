@@ -48,6 +48,7 @@ from userbot.utils import chrome, googleimagesdownload, progress
 CARBONLANG = "auto"
 TTS_LANG = "id"
 TRT_LANG = "id"
+WIKI_LANG = "id"
 
 
 @register(outgoing=True, pattern=r"^\.crblang (.*)")
@@ -271,18 +272,24 @@ async def gsearch(q_event):
         )
 
 
-@register(outgoing=True, pattern=r"^.wiki (.*)")
+@register(outgoing=True, pattern=r"^\.wklang (.*)")
+async def setlang(wklang):
+    global WIKI_LANG
+    WIKI_LANG = wklang.pattern_match.group(1)
+    wikipedia.set_lang(f"{WIKI_LANG}")
+    await wklang.edit(f"Language for wikipedia set to {WIKI_LANG}")
+
+
+@register(outgoing=True, pattern=r"^\.wiki (.*)")
 async def wiki(wiki_q):
     """ For .wiki command, fetch content from Wikipedia. """
     match = wiki_q.pattern_match.group(1)
     try:
         summary(match)
     except DisambiguationError as error:
-        await wiki_q.edit(f"Disambiguated page found.\n\n{error}")
-        return
+        return await wiki_q.edit(f"Disambiguated page found.\n\n{error}")
     except PageError as pageerror:
-        await wiki_q.edit(f"Page not found.\n\n{pageerror}")
-        return
+        return await wiki_q.edit(f"Page not found.\n\n{pageerror}")
     result = summary(match)
     if len(result) >= 4096:
         file = open("output.txt", "w+")
@@ -295,8 +302,7 @@ async def wiki(wiki_q):
             caption="`Output too large, sending as file`",
         )
         if os.path.exists("output.txt"):
-            os.remove("output.txt")
-        return
+            return os.remove("output.txt")
     await wiki_q.edit("**Search:**\n`" + match + "`\n\n**Result:**\n" + result)
     if BOTLOG:
         await wiki_q.client.send_message(
@@ -787,6 +793,13 @@ CMD_HELP.update(
         \nUsage: Does a search on Wikipedia."
     }
 )
+CMD_HELP.update(
+    {
+        "wiki": ".wiki <query>"
+        "\nUsage: Does a search on Wikipedia."
+        "\nSet .wklang <language code> (Default is Indonesian)."
+    }
+)                  
 CMD_HELP.update(
     {
         "ud": ".ud <query>\
