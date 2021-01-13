@@ -41,7 +41,7 @@ from youtube_dl.utils import (
 )
 from youtube_search import YoutubeSearch
 
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, WOLFRAM_ID
+from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, WOLFRAM_ID, IMG_LIMIT
 from userbot.events import register
 from userbot.utils import chrome, googleimagesdownload, progress
 
