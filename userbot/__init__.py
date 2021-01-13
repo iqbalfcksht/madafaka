@@ -125,6 +125,9 @@ GENIUS = os.environ.get("GENIUS_ACCESS_TOKEN") or None
 # Wolfram Alpha API
 WOLFRAM_ID = os.environ.get("WOLFRAM_ID") or None
 
+#ADD SHORTENER
+BITLY_TOKEN = os.environ.get("BITLY_TOKEN") or None
+
 # Anti Spambot Config
 ANTI_SPAMBOT = sb(os.environ.get("ANTI_SPAMBOT") or "False")
 ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT") or "False")
