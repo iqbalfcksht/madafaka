@@ -173,9 +173,9 @@ async def img_sampler(event):
     await event.delete()
 
 
-@register(outgoing=True, pattern="^.img (.*)")
+@register(outgoing=True, pattern=r"^\.gambar (.*)")
 async def img_sampler(event):
-    """ For .img command, search and return images matching the query. """
+    """ For .gambar command, search and return images matching the query. """
     await event.edit("`Processing...`")
     query = event.pattern_match.group(1)
     lim = findall(r"lim=\d+", query)
@@ -184,7 +184,7 @@ async def img_sampler(event):
         lim = lim.replace("lim=", "")
         query = query.replace("lim=" + lim[0], "")
     except IndexError:
-        lim = 8
+        lim = IMG_LIMIT
     response = googleimagesdownload()
 
     # creating list of arguments
@@ -195,19 +195,16 @@ async def img_sampler(event):
         "no_directory": "no_directory",
     }
 
-    # if the query contains some special characters, googleimagesdownload errors out
-    # this is a temporary workaround for it (maybe permanent)
-    try:
-        paths = response.download(arguments)
-    except Exception as e:
-        return await event.edit(f"`Error: {e}`")
-
+    # passing the arguments to the function
+    await event.edit("`Sending some images...`")
+    await sleep(5)
+    await event.delete()
+    paths = response.download(arguments)
     lst = paths[0][query]
     await event.client.send_file(
         await event.client.get_input_entity(event.chat_id), lst
     )
     shutil.rmtree(os.path.dirname(os.path.abspath(lst[0])))
-    await event.delete()
 
 
 @register(outgoing=True, pattern="^.currency (.*)")
@@ -764,6 +761,10 @@ CMD_HELP.update(
     {
         "carbon": ".carbon <text> [or reply]\
         \nUsage: Beautify your code using carbon.now.sh\nUse .crblang <text> to set language for your code."
+        "karbon": ".karbon <text> [or reply]\
+        \nUsage: Beautify your code using carbon.now.sh\nUse .crblang <text> to set language for your code."
+        "carbon": ".gambar <text> [or reply]\
+        \nUsage: Does an image search on Google and shows 5 images."
     }
 )
 CMD_HELP.update(
