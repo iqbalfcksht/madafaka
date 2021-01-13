@@ -1,8 +1,6 @@
-from re import findall
-
 import requests
+from re import findall
 from search_engine_parser import GoogleSearch
-
 from userbot import CMD_HELP
 from userbot.events import register
 
