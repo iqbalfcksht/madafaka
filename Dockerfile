@@ -7,7 +7,7 @@ WORKDIR /One4uBot
 RUN git clone https://github.com/4amparaboy/One4uBot -b test-1 /One4uBot
 RUN mkdir /4amparaboy && chmod 777 /4amparaboy
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt && pip install wget
 #
 # Copies session and config(if it exists)
 #
