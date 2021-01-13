@@ -789,12 +789,6 @@ CMD_HELP.update(
 )
 CMD_HELP.update(
     {
-        "wiki": ".wiki <query>\
-        \nUsage: Does a search on Wikipedia."
-    }
-)
-CMD_HELP.update(
-    {
         "wiki": ".wiki <query>"
         "\nUsage: Does a search on Wikipedia."
         "\nSet .wklang <language code> (Default is Indonesian)."
