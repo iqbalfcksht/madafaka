@@ -753,6 +753,12 @@ CMD_HELP.update(
 )
 CMD_HELP.update(
     {
+        "gambar": ".gambar <search_query>\
+        \nUsage: Does an image search on Google and shows 5 images."
+    }
+)                  
+CMD_HELP.update(
+    {
         "currency": ".currency <amount> <from> <to>\
         \nUsage: Converts various currencies for you."
     }
@@ -761,14 +767,16 @@ CMD_HELP.update(
     {
         "carbon": ".carbon <text> [or reply]\
         \nUsage: Beautify your code using carbon.now.sh\nUse .crblang <text> to set language for your code."
-        "karbon": ".karbon <text> [or reply]\
-        \nUsage: Beautify your code using carbon.now.sh\nUse .crblang <text> to set language for your code."
-        "carbon": ".gambar <text> [or reply]\
-        \nUsage: Does an image search on Google and shows 5 images."
     }
 )
 CMD_HELP.update(
     {
+        "karbon": ".karbon <text> [or reply]\
+        \nUsage: Beautify your code using carbon.now.sh\nUse .crblang <text> to set language for your code."
+    }
+)                                    
+CMD_HELP.update(
+    
         "google": ".google <query>\
         \nUsage: Does a search on Google."
     }
