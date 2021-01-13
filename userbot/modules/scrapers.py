@@ -776,7 +776,7 @@ CMD_HELP.update(
     }
 )                                    
 CMD_HELP.update(
-    
+    {
         "google": ".google <query>\
         \nUsage: Does a search on Google."
     }
