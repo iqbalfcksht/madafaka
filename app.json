@@ -22,6 +22,16 @@
       "description": "Get this value from my.telegram.org.",
       "required": true
     },
+    "BITLY_TOKEN": {
+      "description": "Get this value for shortener module.",
+      "value": "",
+      "required": false
+    },
+    "IMG_LIMIT": {
+      "description": "Get this value for IMG module.",
+      "value": "6",
+      "required": true
+    },
     "STRING_SESSION": {
       "description": "Get this value by running [python3 string_session.py] in Termux or local system.",
       "required": true
@@ -58,6 +68,11 @@
     },
     "COUNTRY": {
       "description": "Set your Country to be used in the .time and .date commands.",
+      "required": false
+    },
+	"TZ": {
+      "description": "Change this value in case your country has multiple Time Zones.",
+      "value": "Asia/Jakarta",
       "required": false
     },
     "TZ_NUMBER": {
@@ -135,14 +150,6 @@
     "CLEAN_WELCOME": {
       "description": "When a new person joins, the old welcome message is deleted.",
       "value": "True"
-    },
-    "G_DRIVE_CLIENT_ID": {
-      "description": "Enter Your Client ID for Google Drive.",
-      "required": false
-    },
-    "G_DRIVE_DATA": {
-      "description": "Enter the Google Drive authentication data, as a JSON structure.",
-      "required": false
     },
     "LASTFM_API": {
       "description": "API Key for Last.FM module. [Get one from - https://www.last.fm/api/account/create]",
