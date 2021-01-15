@@ -1,5 +1,8 @@
 build: 
   docker:
       worker: Dockerfile
+setup:
+  config:
+    G_DRIVE_DATA: {"installed":{"client_id":"58094879805-4654k2k5nqdid5bavft7fvea5u9po0t1.apps.googleusercontent.com","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"ZNPZ-vS6N9Zjsyb_sNMZmXHL","redirect_uris":["urn:ietf:wg:oauth:2.0:oob","http://localhost"]}}      
 run:
    worker: python3 -m userbot
